@@ -1,0 +1,4 @@
+select count(u.id),
+       substring(u.email, position('@' in u.email)+1, length(u.email)) as domainemail
+from todolist.user_data u where u.email like '%@%'
+group by substring(u.email, position('@' in u.email)+1, length(u.email))
